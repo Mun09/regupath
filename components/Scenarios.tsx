@@ -142,7 +142,7 @@ export default function Scenarios() {
                         {isKo ? '이런 상황에서 사용하세요' : 'Use Cases'}
                     </h2>
                     <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                        {isKo ? 'ReguPath가 실제로 어떻게 도움을 주는지 확인해보세요' : 'See how ReguPath helps businesses navigate regulations'}
+                        {isKo ? '미리가 실제로 어떻게 도움을 주는지 확인해보세요' : 'See how MIRI helps businesses navigate regulations'}
                     </p>
                 </div>
 
@@ -178,7 +178,7 @@ export default function Scenarios() {
                                         <Bot className="w-4 h-4 text-white" />
                                     </div>
                                     <div className="flex-1">
-                                        <div className="text-xs text-slate-500 mb-1">ReguPath AI</div>
+                                        <div className="text-xs text-slate-500 mb-1">{isKo ? '미리 AI' : 'MIRI AI'}</div>
                                         <div className="glass-card rounded-2xl rounded-tl-none p-4 space-y-4">
                                             {/* Simulation Header */}
                                             <div className="text-sm text-teal-400 font-medium">
@@ -195,8 +195,8 @@ export default function Scenarios() {
                                                         <span className="mt-0.5">{getStatusIcon(scene.status)}</span>
                                                         <span className="text-sm text-slate-300 flex-1">{scene.text}</span>
                                                         <span className={`text-xs px-2 py-0.5 rounded ${scene.status === 'pass' ? 'bg-green-500/20 text-green-400' :
-                                                                scene.status === 'risk' ? 'bg-yellow-500/20 text-yellow-400' :
-                                                                    'bg-red-500/20 text-red-400'
+                                                            scene.status === 'risk' ? 'bg-yellow-500/20 text-yellow-400' :
+                                                                'bg-red-500/20 text-red-400'
                                                             }`}>
                                                             {getStatusLabel(scene.status)}
                                                         </span>

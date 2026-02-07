@@ -23,13 +23,13 @@ const translations: Record<Language, Record<string, string>> = {
         'hero.cta': 'Request Early Access',
 
         // Problem & Solution
-        'problem.title': 'Why ReguPath?',
-        'problem.before.title': 'Without ReguPath',
+        'problem.title': 'Why MIRI?',
+        'problem.before.title': 'Without MIRI',
         'problem.before.item1': 'Hours spent deciphering legal jargon',
         'problem.before.item2': 'Missed compliance deadlines',
         'problem.before.item3': 'Expensive legal consultations',
         'problem.before.item4': 'Uncertainty about regulatory requirements',
-        'problem.after.title': 'With ReguPath',
+        'problem.after.title': 'With MIRI',
         'problem.after.item1': 'Instant AI-powered regulatory analysis',
         'problem.after.item2': 'Proactive risk identification',
         'problem.after.item3': 'Clear, actionable guidance',
@@ -47,7 +47,7 @@ const translations: Record<Language, Record<string, string>> = {
 
         // Scenarios
         'scenario.title': 'Use Cases',
-        'scenario.subtitle': 'See how ReguPath helps businesses navigate regulations',
+        'scenario.subtitle': 'See how MIRI helps businesses navigate regulations',
         'scenario.1.title': 'Startup Launch',
         'scenario.1.user': 'I want to launch a fintech payment service in Korea.',
         'scenario.1.response': 'Based on your business plan, here are the key regulatory checkpoints:\n\n1. Electronic Financial Transactions Act registration required\n2. Personal Information Protection Act compliance needed\n3. Anti-Money Laundering (AML) requirements apply\n\n⚠️ Risk: Operating without registration carries penalties up to 50M KRW.',
@@ -69,7 +69,7 @@ const translations: Record<Language, Record<string, string>> = {
         'early.benefit3': 'Exclusive features',
 
         // Footer
-        'footer.copyright': '© 2024 ReguPath. All rights reserved.',
+        'footer.copyright': '© 2024 MIRI. All rights reserved.',
         'footer.tagline': 'Navigating regulations, powered by AI.',
     },
     ko: {
@@ -84,13 +84,13 @@ const translations: Record<Language, Record<string, string>> = {
         'hero.cta': '얼리 액세스 신청하기',
 
         // Problem & Solution
-        'problem.title': '왜 ReguPath인가요?',
-        'problem.before.title': 'ReguPath 없이는',
+        'problem.title': '왜 미리인가요?',
+        'problem.before.title': '미리 없이는',
         'problem.before.item1': '법률 용어 해석에만 수시간 소요',
         'problem.before.item2': '놓치기 쉬운 컴플라이언스 일정',
         'problem.before.item3': '부담되는 법률 자문 비용',
         'problem.before.item4': '어떤 규제가 적용되는지 막막함',
-        'problem.after.title': 'ReguPath와 함께라면',
+        'problem.after.title': '미리와 함께라면',
         'problem.after.item1': 'AI가 즉시 관련 규제를 분석',
         'problem.after.item2': '리스크를 미리 파악하고 대비',
         'problem.after.item3': '구체적인 조치 방법 안내',
@@ -108,7 +108,7 @@ const translations: Record<Language, Record<string, string>> = {
 
         // Scenarios
         'scenario.title': '이런 상황에서 사용하세요',
-        'scenario.subtitle': 'ReguPath가 실제로 어떻게 도움을 주는지 확인해보세요',
+        'scenario.subtitle': '미리가 실제로 어떻게 도움을 주는지 확인해보세요',
         'scenario.1.title': '스타트업 창업',
         'scenario.1.user': '한국에서 핀테크 결제 서비스를 시작하려고 합니다.',
         'scenario.1.response': '사업 계획을 분석한 결과, 다음 규제 사항들이 해당됩니다:\n\n1. 전자금융거래법에 따른 등록 필요\n2. 개인정보보호법 준수 사항 확인\n3. 자금세탁방지(AML) 의무 적용\n\n⚠️ 주의: 미등록 영업 시 최대 5천만원 과태료 부과',
@@ -130,7 +130,7 @@ const translations: Record<Language, Record<string, string>> = {
         'early.benefit3': '베타 전용 기능',
 
         // Footer
-        'footer.copyright': '© 2024 ReguPath. All rights reserved.',
+        'footer.copyright': '© 2024 미리(MIRI). All rights reserved.',
         'footer.tagline': 'AI로 규제의 길을 찾다',
     },
 };
