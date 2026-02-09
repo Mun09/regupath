@@ -6,7 +6,7 @@ export default function Footer() {
     const { t, language } = useLanguage();
 
     return (
-        <footer className="py-12 px-4 border-t border-white/10">
+        <footer className="py-12 px-4 border-t border-white/10 snap-end">
             <div className="max-w-6xl mx-auto">
                 <div className="flex flex-col items-center gap-4">
                     {/* Logo & Tagline */}

@@ -18,7 +18,6 @@ export default function Navbar() {
     }, []);
 
     const navLinks = [
-        { href: '#features', label: t('nav.features') },
         { href: '#scenarios', label: t('nav.scenario') },
         { href: '#early-access', label: t('nav.earlyAccess') },
     ];

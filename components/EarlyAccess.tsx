@@ -16,7 +16,7 @@ export default function EarlyAccess() {
     ];
 
     return (
-        <section id="early-access" className="py-24 px-4">
+        <section id="early-access" className="py-24 px-4 h-screen snap-start snap-always flex items-center">
             <div className="max-w-4xl mx-auto">
                 {/* Section Title */}
                 <div className="text-center mb-12">

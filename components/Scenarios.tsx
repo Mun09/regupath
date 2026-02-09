@@ -1,6 +1,7 @@
 'use client';
 
 import { User, Bot, AlertTriangle, CheckCircle, XCircle } from 'lucide-react';
+import { motion } from 'framer-motion';
 import { useLanguage } from './LanguageProvider';
 
 interface Scene {
@@ -134,106 +135,151 @@ export default function Scenarios() {
     };
 
     return (
-        <section id="scenarios" className="py-24 px-4">
-            <div className="max-w-5xl mx-auto">
-                {/* Section Title */}
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-white mb-4">
-                        {isKo ? '이런 상황에서 사용하세요' : 'Use Cases'}
-                    </h2>
-                    <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                        {isKo ? '미리가 실제로 어떻게 도움을 주는지 확인해보세요' : 'See how MIRI helps businesses navigate regulations'}
-                    </p>
+        <>
+            {/* Title Section */}
+            <section id="scenarios" className="h-screen w-full snap-start snap-always flex items-center justify-center px-4 relative">
+                <div className="text-center max-w-4xl mx-auto">
+                    <motion.h2
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6 }}
+                        className="text-4xl sm:text-5xl md:text-6xl font-bold text-white mb-6 leading-tight"
+                    >
+                        {isKo ? '내 사업 아이디어,\n규제에 걸릴까?' : 'Will My Business\nFace Regulations?'}
+                    </motion.h2>
+                    <motion.p
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.6, delay: 0.2 }}
+                        className="text-xl sm:text-2xl text-slate-400"
+                    >
+                        {isKo ? '다양한 사업 시나리오로 미리 확인해보세요.' : 'Check with real-world business scenarios.'}
+                    </motion.p>
                 </div>
+            </section>
 
-                {/* Scenario Cards */}
-                <div className="space-y-12">
-                    {scenarios.map((scenario, index) => (
-                        <div key={index} className="glass rounded-2xl p-6 md:p-8">
+            {/* Individual Scenario Sections */}
+            {scenarios.map((scenario, index) => (
+                <section key={index} id={`scenario-${index}`} className="h-screen w-full snap-start snap-always flex items-center justify-center p-4 relative">
+                    {/* Background Number */}
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[400px] font-bold text-white/[0.02] pointer-events-none select-none z-0">
+                        {index + 1}
+                    </div>
+
+                    <div className="max-w-4xl w-full z-10">
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.95 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.5 }}
+                            className="glass rounded-3xl p-6 md:p-10"
+                        >
                             {/* Scenario Title */}
-                            <div className="mb-6">
-                                <span className="inline-block px-3 py-1 rounded-full bg-teal-500/20 text-teal-400 text-sm font-medium">
-                                    {isKo ? scenario.titleKo : scenario.title}
+                            <div className="mb-8 text-center md:text-left">
+                                <span className="inline-block px-4 py-1.5 rounded-full bg-teal-500/20 text-teal-400 text-sm font-semibold mb-2">
+                                    CASE {index + 1}
                                 </span>
+                                <h3 className="text-2xl md:text-3xl font-bold text-white">
+                                    {isKo ? scenario.titleKo : scenario.title}
+                                </h3>
                             </div>
 
                             {/* Chat Style UI */}
                             <div className="space-y-6">
                                 {/* User Message */}
-                                <div className="flex gap-3">
-                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-slate-700 flex items-center justify-center">
-                                        <User className="w-4 h-4 text-slate-300" />
+                                <motion.div
+                                    initial={{ opacity: 0, x: -20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.2, duration: 0.5 }}
+                                    className="flex gap-4"
+                                >
+                                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center">
+                                        <User className="w-5 h-5 text-slate-300" />
                                     </div>
                                     <div className="flex-1">
-                                        <div className="text-xs text-slate-500 mb-1">{isKo ? '사용자' : 'User'}</div>
-                                        <div className="inline-block bg-slate-800 rounded-2xl rounded-tl-none px-4 py-3 text-slate-200">
+                                        <div className="text-sm font-medium text-slate-400 mb-1 ml-1">{isKo ? '사업자' : 'Business Owner'}</div>
+                                        <div className="inline-block bg-slate-800 rounded-3xl rounded-tl-none px-6 py-4 text-slate-200 text-lg leading-relaxed shadow-lg">
                                             {isKo ? scenario.userKo : scenario.user}
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
 
                                 {/* AI Response */}
-                                <div className="flex gap-3">
-                                    <div className="flex-shrink-0 w-8 h-8 rounded-full bg-gradient-to-br from-teal-500 to-blue-500 flex items-center justify-center">
-                                        <Bot className="w-4 h-4 text-white" />
+                                <motion.div
+                                    initial={{ opacity: 0, x: 20 }}
+                                    whileInView={{ opacity: 1, x: 0 }}
+                                    viewport={{ once: true }}
+                                    transition={{ delay: 0.6, duration: 0.5 }}
+                                    className="flex gap-4"
+                                >
+                                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-teal-500 to-blue-500 flex items-center justify-center shadow-lg shadow-teal-500/20">
+                                        <Bot className="w-5 h-5 text-white" />
                                     </div>
                                     <div className="flex-1">
-                                        <div className="text-xs text-slate-500 mb-1">{isKo ? '미리 AI' : 'MIRI AI'}</div>
-                                        <div className="glass-card rounded-2xl rounded-tl-none p-4 space-y-4">
-                                            {/* Simulation Header */}
-                                            <div className="text-sm text-teal-400 font-medium">
-                                                {isKo ? '📋 시나리오 시뮬레이션 결과' : '📋 Scenario Simulation Results'}
-                                            </div>
+                                        <div className="text-sm font-medium text-slate-400 mb-1 ml-1">{isKo ? '미리 AI' : 'MIRI AI'}</div>
+                                        <div className="glass-card rounded-3xl rounded-tl-none p-6 space-y-5">
 
                                             {/* Scenes */}
-                                            <div className="space-y-2">
+                                            <div className="space-y-3">
                                                 {(isKo ? scenario.scenesKo : scenario.scenes).map((scene, sIndex) => (
-                                                    <div
+                                                    <motion.div
                                                         key={sIndex}
-                                                        className={`flex items-start gap-2 p-2 rounded-lg border ${getStatusBg(scene.status)}`}
+                                                        initial={{ opacity: 0, y: 10 }}
+                                                        whileInView={{ opacity: 1, y: 0 }}
+                                                        viewport={{ once: true }}
+                                                        transition={{ delay: 1.0 + (sIndex * 0.2), duration: 0.4 }}
+                                                        className={`flex items-center gap-3 p-3 rounded-xl border ${getStatusBg(scene.status)}`}
                                                     >
-                                                        <span className="mt-0.5">{getStatusIcon(scene.status)}</span>
-                                                        <span className="text-sm text-slate-300 flex-1">{scene.text}</span>
-                                                        <span className={`text-xs px-2 py-0.5 rounded ${scene.status === 'pass' ? 'bg-green-500/20 text-green-400' :
+                                                        <span className="flex-shrink-0">{getStatusIcon(scene.status)}</span>
+                                                        <span className="text-base text-slate-200 flex-1 font-medium">{scene.text}</span>
+                                                        <span className={`text-xs px-2.5 py-1 rounded-md font-bold uppercase tracking-wide ${scene.status === 'pass' ? 'bg-green-500/20 text-green-400' :
                                                             scene.status === 'risk' ? 'bg-yellow-500/20 text-yellow-400' :
                                                                 'bg-red-500/20 text-red-400'
                                                             }`}>
                                                             {getStatusLabel(scene.status)}
                                                         </span>
-                                                    </div>
+                                                    </motion.div>
                                                 ))}
                                             </div>
 
                                             {/* Risk Report */}
-                                            <div className="border-t border-white/10 pt-4 space-y-3">
-                                                <div className="text-sm font-medium text-red-400 flex items-center gap-2">
-                                                    <AlertTriangle className="w-4 h-4" />
-                                                    {isKo ? '위험 보고서' : 'Risk Report'}
+                                            <motion.div
+                                                initial={{ opacity: 0 }}
+                                                whileInView={{ opacity: 1 }}
+                                                viewport={{ once: true }}
+                                                transition={{ delay: 1.6, duration: 0.5 }}
+                                                className="border-t border-white/10 pt-5 space-y-4"
+                                            >
+                                                <div className="flex flex-col gap-1">
+                                                    <div className="flex items-center gap-2 mb-1">
+                                                        <span className="text-sm font-bold text-red-400 uppercase tracking-widest">{isKo ? '위험 감지' : 'RISK DETECTED'}</span>
+                                                        <div className="h-px bg-red-500/30 flex-1"></div>
+                                                    </div>
+                                                    <div className="text-lg font-semibold text-white">
+                                                        {isKo ? scenario.riskTitleKo : scenario.riskTitle}
+                                                    </div>
                                                 </div>
 
-                                                <div className="space-y-2 text-sm">
+                                                <div className="glass-light rounded-xl p-4 text-sm space-y-3">
                                                     <div>
-                                                        <span className="text-slate-500">{isKo ? '감지된 위험: ' : 'Detected Risk: '}</span>
-                                                        <span className="text-yellow-400">{isKo ? scenario.riskTitleKo : scenario.riskTitle}</span>
+                                                        <span className="text-slate-400 block text-xs uppercase tracking-wider mb-1">{isKo ? '법적 근거' : 'Legal Basis'}</span>
+                                                        <span className="text-slate-200">{isKo ? scenario.riskLawKo : scenario.riskLaw}</span>
                                                     </div>
                                                     <div>
-                                                        <span className="text-slate-500">{isKo ? '법적 근거: ' : 'Legal Basis: '}</span>
-                                                        <span className="text-slate-300">{isKo ? scenario.riskLawKo : scenario.riskLaw}</span>
-                                                    </div>
-                                                    <div className="flex items-start gap-1">
-                                                        <span className="text-slate-500">{isKo ? '💡 제안: ' : '💡 Suggestion: '}</span>
-                                                        <span className="text-teal-400">{isKo ? scenario.suggestionKo : scenario.suggestion}</span>
+                                                        <span className="text-teal-400 block text-xs uppercase tracking-wider mb-1">{isKo ? '미리의 제안' : 'Suggestion'}</span>
+                                                        <span className="text-slate-200">{isKo ? scenario.suggestionKo : scenario.suggestion}</span>
                                                     </div>
                                                 </div>
-                                            </div>
+                                            </motion.div>
                                         </div>
                                     </div>
-                                </div>
+                                </motion.div>
                             </div>
-                        </div>
-                    ))}
-                </div>
-            </div>
-        </section>
+                        </motion.div>
+                    </div>
+                </section>
+            ))}
+        </>
     );
 }
