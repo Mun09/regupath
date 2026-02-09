@@ -50,9 +50,14 @@ export default function Hero() {
 
                 {/* Subheadline */}
                 <p className="text-lg sm:text-xl md:text-2xl text-slate-400 max-w-3xl mx-auto mb-12 leading-relaxed">
-                    {language === 'ko'
-                        ? "사업 시나리오만 입력하면, AI가 복잡한 법령 검색 없이 위법 여부와 규제 샌드박스 가능성을 즉시 진단합니다."
-                        : "Input your business scenario. AI diagnoses legality and regulatory sandbox possibilities in seconds without complex legal searches."}
+                    {language === 'ko' ? (
+                        <>
+                            사업 시나리오만 입력하면, <br />
+                            AI가 복잡한 법령 검색 없이 위법 여부와 규제 샌드박스 가능성을 즉시 진단합니다.
+                        </>
+                    ) : (
+                        "Input your business scenario. AI diagnoses legality and regulatory sandbox possibilities in seconds without complex legal searches."
+                    )}
                 </p>
 
                 {/* CTA Button */}
