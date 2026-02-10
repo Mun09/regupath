@@ -137,7 +137,7 @@ export default function Scenarios() {
     return (
         <>
             {/* Title Section */}
-            <section id="scenarios" className="h-screen w-full snap-start snap-always flex items-center justify-center px-4 relative">
+            <section id="scenarios" className="min-h-screen md:h-screen w-full snap-start snap-always flex items-center justify-center px-4 relative py-20 md:py-0 overflow-hidden">
                 <div className="text-center max-w-4xl mx-auto">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
@@ -151,7 +151,7 @@ export default function Scenarios() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         transition={{ duration: 0.6, delay: 0.2 }}
-                        className="text-xl sm:text-2xl text-slate-400"
+                        className="text-lg sm:text-xl md:text-2xl text-slate-400"
                     >
                         {isKo ? '다양한 사업 시나리오로 미리 확인해보세요.' : 'Check with real-world business scenarios.'}
                     </motion.p>
@@ -160,9 +160,9 @@ export default function Scenarios() {
 
             {/* Individual Scenario Sections */}
             {scenarios.map((scenario, index) => (
-                <section key={index} id={`scenario-${index}`} className="h-screen w-full snap-start snap-always flex items-center justify-center p-4 relative">
+                <section key={index} id={`scenario-${index}`} className="min-h-screen md:h-screen w-full snap-start snap-always flex items-center justify-center p-4 relative py-20 md:py-4 overflow-hidden">
                     {/* Background Number */}
-                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[400px] font-bold text-white/[0.02] pointer-events-none select-none z-0">
+                    <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[200px] md:text-[400px] font-bold text-white/[0.02] pointer-events-none select-none z-0">
                         {index + 1}
                     </div>
 
@@ -172,14 +172,14 @@ export default function Scenarios() {
                             whileInView={{ opacity: 1, scale: 1 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
-                            className="glass rounded-3xl p-6 md:p-10"
+                            className="glass rounded-3xl p-5 md:p-8 lg:p-10"
                         >
                             {/* Scenario Title */}
-                            <div className="mb-8 text-center md:text-left">
+                            <div className="mb-6 md:mb-8 text-center md:text-left">
                                 <span className="inline-block px-4 py-1.5 rounded-full bg-teal-500/20 text-teal-400 text-sm font-semibold mb-2">
                                     CASE {index + 1}
                                 </span>
-                                <h3 className="text-2xl md:text-3xl font-bold text-white">
+                                <h3 className="text-xl md:text-2xl lg:text-3xl font-bold text-white">
                                     {isKo ? scenario.titleKo : scenario.title}
                                 </h3>
                             </div>
@@ -192,14 +192,14 @@ export default function Scenarios() {
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: 0.2, duration: 0.5 }}
-                                    className="flex gap-4"
+                                    className="flex gap-3 md:gap-4"
                                 >
-                                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-slate-700 flex items-center justify-center">
-                                        <User className="w-5 h-5 text-slate-300" />
+                                    <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-slate-700 flex items-center justify-center">
+                                        <User className="w-4 h-4 md:w-5 md:h-5 text-slate-300" />
                                     </div>
                                     <div className="flex-1">
                                         <div className="text-sm font-medium text-slate-400 mb-1 ml-1">{isKo ? '사업자' : 'Business Owner'}</div>
-                                        <div className="inline-block bg-slate-800 rounded-3xl rounded-tl-none px-6 py-4 text-slate-200 text-lg leading-relaxed shadow-lg">
+                                        <div className="inline-block bg-slate-800 rounded-3xl rounded-tl-none px-5 py-3 md:px-6 md:py-4 text-slate-200 text-base md:text-lg leading-relaxed shadow-lg">
                                             {isKo ? scenario.userKo : scenario.user}
                                         </div>
                                     </div>
@@ -211,17 +211,17 @@ export default function Scenarios() {
                                     whileInView={{ opacity: 1, x: 0 }}
                                     viewport={{ once: true }}
                                     transition={{ delay: 0.6, duration: 0.5 }}
-                                    className="flex gap-4"
+                                    className="flex gap-3 md:gap-4"
                                 >
-                                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-gradient-to-br from-teal-500 to-blue-500 flex items-center justify-center shadow-lg shadow-teal-500/20">
-                                        <Bot className="w-5 h-5 text-white" />
+                                    <div className="flex-shrink-0 w-8 h-8 md:w-10 md:h-10 rounded-full bg-gradient-to-br from-teal-500 to-blue-500 flex items-center justify-center shadow-lg shadow-teal-500/20">
+                                        <Bot className="w-4 h-4 md:w-5 md:h-5 text-white" />
                                     </div>
                                     <div className="flex-1">
                                         <div className="text-sm font-medium text-slate-400 mb-1 ml-1">{isKo ? '미리 AI' : 'MIRI AI'}</div>
-                                        <div className="glass-card rounded-3xl rounded-tl-none p-6 space-y-5">
+                                        <div className="glass-card rounded-3xl rounded-tl-none p-4 md:p-6 space-y-4 md:space-y-5">
 
                                             {/* Scenes */}
-                                            <div className="space-y-3">
+                                            <div className="space-y-2 md:space-y-3">
                                                 {(isKo ? scenario.scenesKo : scenario.scenes).map((scene, sIndex) => (
                                                     <motion.div
                                                         key={sIndex}
@@ -229,11 +229,11 @@ export default function Scenarios() {
                                                         whileInView={{ opacity: 1, y: 0 }}
                                                         viewport={{ once: true }}
                                                         transition={{ delay: 1.0 + (sIndex * 0.2), duration: 0.4 }}
-                                                        className={`flex items-center gap-3 p-3 rounded-xl border ${getStatusBg(scene.status)}`}
+                                                        className={`flex items-start md:items-center gap-3 p-3 rounded-xl border ${getStatusBg(scene.status)}`}
                                                     >
-                                                        <span className="flex-shrink-0">{getStatusIcon(scene.status)}</span>
-                                                        <span className="text-base text-slate-200 flex-1 font-medium">{scene.text}</span>
-                                                        <span className={`text-xs px-2.5 py-1 rounded-md font-bold uppercase tracking-wide ${scene.status === 'pass' ? 'bg-green-500/20 text-green-400' :
+                                                        <span className="flex-shrink-0 mt-0.5 md:mt-0">{getStatusIcon(scene.status)}</span>
+                                                        <span className="text-sm md:text-base text-slate-200 flex-1 font-medium">{scene.text}</span>
+                                                        <span className={`text-[10px] md:text-xs px-2 py-0.5 md:px-2.5 md:py-1 rounded-md font-bold uppercase tracking-wide whitespace-nowrap ${scene.status === 'pass' ? 'bg-green-500/20 text-green-400' :
                                                             scene.status === 'risk' ? 'bg-yellow-500/20 text-yellow-400' :
                                                                 'bg-red-500/20 text-red-400'
                                                             }`}>
@@ -249,26 +249,26 @@ export default function Scenarios() {
                                                 whileInView={{ opacity: 1 }}
                                                 viewport={{ once: true }}
                                                 transition={{ delay: 1.6, duration: 0.5 }}
-                                                className="border-t border-white/10 pt-5 space-y-4"
+                                                className="border-t border-white/10 pt-4 md:pt-5 space-y-3 md:space-y-4"
                                             >
                                                 <div className="flex flex-col gap-1">
                                                     <div className="flex items-center gap-2 mb-1">
-                                                        <span className="text-sm font-bold text-red-400 uppercase tracking-widest">{isKo ? '위험 감지' : 'RISK DETECTED'}</span>
+                                                        <span className="text-xs md:text-sm font-bold text-red-400 uppercase tracking-widest">{isKo ? '위험 감지' : 'RISK DETECTED'}</span>
                                                         <div className="h-px bg-red-500/30 flex-1"></div>
                                                     </div>
-                                                    <div className="text-lg font-semibold text-white">
+                                                    <div className="text-base md:text-lg font-semibold text-white leading-snug">
                                                         {isKo ? scenario.riskTitleKo : scenario.riskTitle}
                                                     </div>
                                                 </div>
 
-                                                <div className="glass-light rounded-xl p-4 text-sm space-y-3">
+                                                <div className="glass-light rounded-xl p-3 md:p-4 text-sm space-y-3">
                                                     <div>
                                                         <span className="text-slate-400 block text-xs uppercase tracking-wider mb-1">{isKo ? '법적 근거' : 'Legal Basis'}</span>
-                                                        <span className="text-slate-200">{isKo ? scenario.riskLawKo : scenario.riskLaw}</span>
+                                                        <span className="text-slate-200 leading-relaxed block">{isKo ? scenario.riskLawKo : scenario.riskLaw}</span>
                                                     </div>
                                                     <div>
                                                         <span className="text-teal-400 block text-xs uppercase tracking-wider mb-1">{isKo ? '미리의 제안' : 'Suggestion'}</span>
-                                                        <span className="text-slate-200">{isKo ? scenario.suggestionKo : scenario.suggestion}</span>
+                                                        <span className="text-slate-200 leading-relaxed block">{isKo ? scenario.suggestionKo : scenario.suggestion}</span>
                                                     </div>
                                                 </div>
                                             </motion.div>

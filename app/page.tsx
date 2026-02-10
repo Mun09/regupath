@@ -56,7 +56,7 @@ function LandingPage() {
     return () => observer.disconnect();
   }, []);
 
-  const scrollTo = (id: string) => {
+  const scrollToSection = (id: string) => {
     const element = document.getElementById(id);
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
@@ -64,20 +64,20 @@ function LandingPage() {
   };
 
   return (
-    <div ref={containerRef} className="relative h-screen overflow-y-scroll overflow-x-hidden snap-y snap-mandatory scrollbar-hide">
+    <div ref={containerRef} className="relative h-screen overflow-y-scroll overflow-x-hidden md:snap-y md:snap-mandatory scrollbar-hide">
       <Navbar />
 
       {/* Right Side Navigation Dots */}
-      <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 flex flex-col gap-6 transform translate-x-1/2 md:translate-x-0">
+      <div className="fixed right-8 top-1/2 -translate-y-1/2 z-50 hidden md:flex flex-col gap-6 transform translate-x-1/2 md:translate-x-0">
         {sections.map(({ id, label }) => (
           <button
             key={id}
-            onClick={() => scrollTo(id)}
+            onClick={() => scrollToSection(id)}
             className="group flex items-center justify-end gap-4 cursor-pointer relative py-2 pr-4 pl-8"
             aria-label={`Scroll to ${label}`}
           >
             {/* Tooltip Label (visible on hover) */}
-            <span className="absolute right-12 text-sm text-teal-400 font-medium opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap hidden md:block">
+            <span className="absolute right-12 text-sm text-teal-400 font-medium opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap block">
               {label}
             </span>
 

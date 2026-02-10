@@ -12,7 +12,7 @@ export default function Hero() {
     };
 
     return (
-        <section id="hero" className="relative h-screen flex items-center justify-center overflow-hidden px-4 py-20 snap-start snap-always">
+        <section id="hero" className="relative min-h-screen md:h-screen flex items-center justify-center overflow-hidden px-4 py-20 snap-start snap-always">
             {/* Background effects */}
             <div className="absolute inset-0 overflow-hidden">
                 <div className="absolute top-1/4 left-1/4 w-96 h-96 bg-teal-500/20 rounded-full blur-3xl" />
